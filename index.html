@@ -3,105 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deepak Ananthapadman - Robotics & AI Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Deepak Ananthapadman - Robotics Engineer & AI Specialist</title>
+    <meta name="description" content="Mechanical Engineer and Robotics Automation Specialist specializing in AI, Machine Learning, Computer Vision, and advanced Control Systems. Delivering 153% ROI growth through intelligent automation solutions.">
+    <meta name="keywords" content="robotics engineer, AI specialist, computer vision, machine learning, automation, mechanical engineer, 6D pose estimation, deep learning">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Spline 3D -->
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.71/build/spline-viewer.js"></script>
-    <script>
-        // Ensure Spline loads with animations
-        window.addEventListener('DOMContentLoaded', function() {
-            const splineViewer = document.querySelector('spline-viewer');
-            if (splineViewer) {
-                // Set initial state to visible
-                splineViewer.style.opacity = '1';
-                splineViewer.style.visibility = 'visible';
-                
-                // Wait for Spline to fully load
-                splineViewer.addEventListener('load', function() {
-                    console.log('Spline loaded, triggering animations');
-                    
-                    // Try multiple methods to trigger animations
-                    setTimeout(() => {
-                        try {
-                            // Method 1: Direct API call
-                            if (splineViewer.spline) {
-                                splineViewer.spline.triggerEvent('zoomOut');
-                            }
-                        } catch (e) {
-                            console.log('Method 1 failed:', e);
-                        }
-                        
-                        try {
-                            // Method 2: Dispatch custom event
-                            splineViewer.dispatchEvent(new CustomEvent('spline-trigger', { detail: 'zoomOut' }));
-                        } catch (e) {
-                            console.log('Method 2 failed:', e);
-                        }
-                    }, 1000);
-                });
-            }
-        });
-    </script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text option3">DEEPAK</span>
+                <span class="logo-text">DEEPAK</span>
             </div>
-            <div class="nav-menu">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <div class="nav-dots">
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-robot-background">
-                    <spline-viewer 
-                        url="https://prod.spline.design/G1uvC3MAloAxvYRH/scene.splinecode"
-                        auto-rotate="true"
-                        auto-rotate-speed="1"
-                        interactive="true"
-                        loading="eager">
-                    </spline-viewer>
-                </div>
-                <div class="hero-text-overlay">
-                    <div class="hero-description">
-                        A proactive Mechanical Engineer and recent MSc Advanced Robotics graduate specializing in AI, Machine Learning, Computer Vision, and advanced Control Systems.
-                    </div>
-                    <h1 class="hero-title orbitron">ROBOTICS & AI ENGINEER</h1>
-                    <div class="hero-cta">
-                        <a href="#projects" class="cta-button">Explore →</a>
-                    </div>
-                </div>
+        <div class="hero-content">
+            <div class="hero-robot-background">
+                <spline-viewer 
+                    url="https://prod.spline.design/G1uvC3MAloAxvYRH/scene.splinecode"
+                    auto-rotate="true"
+                    auto-rotate-speed="1"
+                    interactive="true"
+                    loading="eager">
+                </spline-viewer>
             </div>
-            <div class="hero-navigation">
-                <div class="page-indicator">
-                    <span class="current-page">001</span>
-                    <span class="total-pages">/ 004</span>
+            <div class="hero-text-overlay">
+                <h1 class="hero-title orbitron">DEEPAK ANANTHAPADMAN</h1>
+                <div class="hero-subtitle">
+                    Mechanical Engineer | Robotics Automation Specialist
                 </div>
-                <div class="next-section">
-                    <a href="#about" class="next-link">NEXT About</a>
-                    <div class="next-arrow">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                <div class="hero-stats">
+                    <span class="stat-item">153% ROI Growth</span>
+                    <span class="stat-separator">•</span>
+                    <span class="stat-item">±2mm Precision</span>
+                    <span class="stat-separator">•</span>
+                    <span class="stat-item">20.3 FPS Real-time</span>
+                </div>
+                <div class="hero-tagline">
+                    Building Intelligent Automation Systems for the Future
+                </div>
+                <div class="hero-contact">
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+44 7818984644</span>
                     </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>deepakananth2001@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>London, UK</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-button">View My Work</a>
+                    <a href="#contact" class="cta-button secondary">Get In Touch</a>
                 </div>
             </div>
         </div>
@@ -111,52 +108,71 @@
     <section class="about" id="about">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">About</h2>
-                <div class="section-number">02</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-number">01</div>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <p class="about-description">
-                        I am a passionate Mechanical Engineer with expertise in AI, Machine Learning, and Computer Vision. 
-                        My journey spans from designing turnkey automation solutions for global clients to developing 
-                        cutting-edge robotics systems with real-time performance and industry-ready precision.
+                        A proactive Mechanical Engineer and recent MSc Advanced Robotics graduate specializing in AI, Machine Learning, 
+                        Computer Vision, and advanced Control Systems. I possess hands-on experience in full-cycle project management 
+                        and designing turnkey automation solutions for major global clients.
                     </p>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>Programming</h3>
-                            <p>Python, C, C++, MATLAB</p>
+                    <p class="about-description">
+                        Skilled in applying deep learning, predictive modeling, and sophisticated simulation to solve complex problems 
+                        in robotics, aviation, and healthcare. My journey spans from developing industry-ready computer vision systems 
+                        at Queen Mary University to delivering automation solutions that generated 153% EBITDA growth for global clients.
+                    </p>
+                    <div class="key-achievements">
+                        <div class="achievement-item">
+                            <span class="achievement-number">153%</span>
+                            <span class="achievement-text">ROI Growth</span>
                         </div>
-                        <div class="skill-category">
-                            <h3>AI & Data Science</h3>
-                            <p>PyTorch, TensorFlow, Keras, Scikit-learn, Open3D, MediaPipe</p>
+                        <div class="achievement-item">
+                            <span class="achievement-number">±2mm</span>
+                            <span class="achievement-text">Precision</span>
                         </div>
-                        <div class="skill-category">
-                            <h3>Robotics & Simulation</h3>
-                            <p>CoppeliaSim, Simulink, SolidWorks, ABB RoboStudio, AutoCAD</p>
+                        <div class="achievement-item">
+                            <span class="achievement-number">20.3</span>
+                            <span class="achievement-text">FPS Real-time</span>
                         </div>
-                        <div class="skill-category">
-                            <h3>Core Competencies</h3>
-                            <p>Machine Learning, Deep Learning, 6D Pose Estimation, Control Systems, Computer Vision</p>
+                        <div class="achievement-item">
+                            <span class="achievement-number">100%</span>
+                            <span class="achievement-text">Detection Rate</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">49.2ms</span>
-                        <span class="stat-label">Real-time Performance</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <div class="section-number">02</div>
+            </div>
+            <div class="education-content">
+                <div class="education-item">
+                    <div class="education-header">
+                        <h3 class="education-degree">Masters in Advanced Robotics</h3>
+                        <span class="education-year">2025</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">±2mm</span>
-                        <span class="stat-label">Position Accuracy</span>
+                    <div class="education-institution">Queen Mary University of London</div>
+                    <div class="education-location">London, UK</div>
+                    <div class="education-thesis">
+                        <strong>Thesis:</strong> Multi-Modal AI 6D Pose Recognition for Robotic Manipulation
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Detection Rate</span>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h3 class="education-degree">Bachelor of Mechanical Engineering</h3>
+                        <span class="education-year">2019-2023</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">90.3%</span>
-                        <span class="stat-label">Test Accuracy</span>
-                    </div>
+                    <div class="education-institution">Anna University</div>
+                    <div class="education-location">India</div>
+                    <div class="education-grade">First Class Honours</div>
                 </div>
             </div>
         </div>
@@ -166,141 +182,390 @@
     <section class="projects" id="projects">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">Projects</h2>
+                <h2 class="section-title">Academic & Personal Projects</h2>
                 <div class="section-number">03</div>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">Multi-modal AI 6D Pose Recognition</h3>
-                        <span class="project-type">MSc Thesis</span>
+                        <span class="project-type">MSc Thesis • Computer Vision</span>
                     </div>
-                    <p class="project-description">
-                        Developed a complete end-to-end system for 6D pose estimation with a 4-stage modular pipeline 
-                        integrating deep learning (YOLOv8) with geometric computer vision.
-                    </p>
-                    <div class="project-stats">
-                        <span class="stat">49.2ms / 20.3 FPS</span>
-                        <span class="stat">±2mm position</span>
-                        <span class="stat">100% detection rate</span>
+                    <div class="project-description">
+                        <p>Developed a complete end-to-end system for 6D pose estimation, designing a 4-stage modular pipeline that integrates deep learning (YOLOv8) with geometric computer vision (PCA, RGB-D fusion) and Meta AI's MCC (Multiview Compressive Coding for 3D Reconstruction).</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">49.2ms</span>
+                            <span class="metric-label">Processing Time</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">20.3 FPS</span>
+                            <span class="metric-label">Real-time Performance</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">±2mm</span>
+                            <span class="metric-label">Position Accuracy</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">100%</span>
+                            <span class="metric-label">Detection Rate</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Resolved a key trade-off between speed and accuracy in 6D pose estimation, creating a practical solution with direct applications in industrial automation for pick-and-place and quality control.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Python, PyTorch, YOLOv8, Open3D, Meta AI MCC
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Multi_modal_AI_6D_Pose_Recognition" class="project-link" target="_blank">View Code</a>
+                        <a href="https://github.com/Dee-Nith/Multi_modal_AI_6D_Pose_Recognition" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">Aircraft Taxi Time Prediction</h3>
-                        <span class="project-type">Machine Learning</span>
+                        <span class="project-type">Machine Learning • Aviation</span>
                     </div>
-                    <p class="project-description">
-                        Developed a machine learning system using custom neural networks and ANFIS to predict aircraft taxi times, 
-                        enhancing airport operational efficiency.
-                    </p>
-                    <div class="project-stats">
-                        <span class="stat">RMSE: 4.05 minutes</span>
-                        <span class="stat">ANFIS Model</span>
-                        <span class="stat">Neural Networks</span>
+                    <div class="project-description">
+                        <p>Developed a machine learning system to predict aircraft taxi times, implementing both a custom-built neural network and an Adaptive Neuro-Fuzzy Inference System (ANFIS).</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">4.05 min</span>
+                            <span class="metric-label">RMSE</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">Real-time</span>
+                            <span class="metric-label">Processing</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Created a predictive tool to enhance airport operational efficiency, achieving a low prediction error with the ANFIS model.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Python, TensorFlow, Scikit-fuzzy, Pandas
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Aircraft-taxi-time-prediction" class="project-link" target="_blank">View Code</a>
+                        <a href="https://github.com/Dee-Nith/Aircraft-Taxi-Prediction" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
                         <h3 class="project-title">Medical Image Classification</h3>
-                        <span class="project-type">Deep Learning</span>
+                        <span class="project-type">Deep Learning • Healthcare</span>
                     </div>
-                    <p class="project-description">
-                        Developed a deep learning system for automated coronary artery lesion classification from 3,700 OCT images 
-                        using DenseNet121 and transfer learning.
-                    </p>
-                    <div class="project-stats">
-                        <span class="stat">90.3% accuracy</span>
-                        <span class="stat">3,700 images</span>
-                        <span class="stat">DenseNet121</span>
+                    <div class="project-description">
+                        <p>Developed a deep learning system for automated coronary artery lesion classification from 3,700 Optical Coherence Tomography (OCT) images using DenseNet121 and transfer learning.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">90.3%</span>
+                            <span class="metric-label">Test Accuracy</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3,700+</span>
+                            <span class="metric-label">Images</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Created a production-ready system with pre-trained models, providing a valuable tool for clinical decision support in cardiology.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Python, PyTorch, DenseNet121, OpenCV
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/oct-coronary-lesion-classifier" class="project-link" target="_blank">View Code</a>
+                        <a href="https://github.com/Dee-Nith/Medical-Image-Classification" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3 class="project-title">Elderly Healthcare Monitoring</h3>
-                        <span class="project-type">Cognitive Robotics</span>
+                        <h3 class="project-title">Robotics Control Systems & Simulation</h3>
+                        <span class="project-type">Control Systems • Simulation</span>
                     </div>
-                    <p class="project-description">
-                        Developed a real-time monitoring system using multi-modal computer vision pipeline and Random Forest 
-                        Classifier to detect high-risk activities.
-                    </p>
-                    <div class="project-stats">
-                        <span class="stat"><100ms latency</span>
-                        <span class="stat">~20 FPS</span>
-                        <span class="stat">MediaPipe</span>
+                    <div class="project-description">
+                        <p>Developed an advanced robotics simulation platform using MATLAB/Simulink featuring computed torque control and dynamic compensation.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">&lt;2%</span>
+                            <span class="metric-label">Tracking Error</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Created a high-fidelity, scalable simulation platform for designing, testing, and validating advanced control algorithms for robotic systems.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> MATLAB, Simulink, Robotics System Toolbox
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Elderly_Monitoring_Model_Cognitive_Robotics" class="project-link" target="_blank">View Code</a>
+                        <a href="https://github.com/Dee-Nith/Robotics-Control-Simulation" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Healthcare Monitoring System</h3>
+                        <span class="project-type">Computer Vision • IoT</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Developed a real-time monitoring system using a multi-modal computer vision pipeline (MediaPipe) and a Random Forest Classifier to detect and alert on high-risk activities.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">&lt;100ms</span>
+                            <span class="metric-label">Latency</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">20 FPS</span>
+                            <span class="metric-label">Processing</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Created a low-latency system to improve patient safety through automated monitoring, processing video on standard hardware.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Python, MediaPipe, OpenCV, Scikit-learn
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Dee-Nith/Healthcare-Monitoring" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> Source Code
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Professional Projects Section -->
+    <section class="professional-projects" id="professional-projects">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Projects</h2>
+                <div class="section-number">04</div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card professional">
+                    <div class="project-header">
+                        <h3 class="project-title">Heavy Machinery Assembly Automation</h3>
+                        <span class="project-type">BGR Neo • Industrial Automation</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Designed an automated assembly solution for a leading construction equipment manufacturer's multi-terrain loaders, focusing on the robotic assembly of the vehicle's track system.</p>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Provided a critical automation solution for a key assembly process, addressing the challenges of safely and consistently handling heavy-duty components.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Industrial Robots, SolidWorks, Control Systems
+                    </div>
+                </div>
+
+                <div class="project-card professional">
+                    <div class="project-header">
+                        <h3 class="project-title">HVAC Assembly & Packaging Automation</h3>
+                        <span class="project-type">BGR Neo • Manufacturing</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Engineered comprehensive solutions for major HVAC manufacturers, from end-of-line (EOL) robotic packaging to full assembly line automation.</p>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Delivered versatile EOL and full-line automation systems, enabling clients to scale production and improve packaging consistency.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> SCARA Robots, Packaging Systems, PLC
+                    </div>
+                </div>
+
+                <div class="project-card professional">
+                    <div class="project-header">
+                        <h3 class="project-title">Turnkey Battery Pack Assembly Line</h3>
+                        <span class="project-type">BGR Neo • Global Industrial Leader</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Designed and delivered a complete battery pack assembly line, integrating 6-DOF, gantry, and SCARA robots.</p>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Engineered a complete, multi-robot assembly line from the ground up, providing the client with a fully integrated and automated production capability.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> 6-DOF Robots, Gantry Systems, SCARA, Integration
+                    </div>
+                </div>
+
+                <div class="project-card professional">
+                    <div class="project-header">
+                        <h3 class="project-title">Robotic Debagging System</h3>
+                        <span class="project-type">BGR Neo • Global Beverage Leader</span>
+                    </div>
+                    <div class="project-description">
+                        <p>Engineered a turnkey robotic solution to handle 50kg raw material bags, achieving a 120-second cycle time.</p>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">120s</span>
+                            <span class="metric-label">Cycle Time</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">50kg</span>
+                            <span class="metric-label">Bag Weight</span>
+                        </div>
+                    </div>
+                    <div class="project-impact">
+                        <strong>Impact:</strong> Replaced a strenuous 4-person manual process, automated a key raw material bottleneck to boost production, and created a scalable solution planned for nationwide rollout.
+                    </div>
+                    <div class="project-tech">
+                        <strong>Technologies:</strong> Heavy-duty Robots, Material Handling, Automation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
     <section class="experience" id="experience">
         <div class="section-container">
             <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <div class="section-number">04</div>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="section-number">05</div>
             </div>
             <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Application & Sales Engineer</h3>
-                            <span class="timeline-company">BGR Neo Robotics & Automation</span>
-                            <span class="timeline-date">Aug 2023 – Aug 2024</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Led robotic process automation (RPA) projects, enhancing production efficiency by 10%</li>
-                            <li>Managed full project lifecycle using Agile methodologies, achieving 20% increase in project success metrics</li>
-                            <li>Enhanced brand visibility through strategic exhibition management at 2024 India Warehousing Show</li>
-                            <li>Contributed to company's 153.15% increase in EBITDA and 127.93% rise in book net worth</li>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Application & Sales Engineer</h3>
+                        <span class="experience-company">BGR Neo Robotics & Automation (Startup)</span>
+                        <span class="experience-period">Aug 2023 – Aug 2024</span>
+                    </div>
+                    <div class="experience-achievements">
+                        <ul>
+                            <li>Led robotic process automation (RPA) projects, ensuring client specification compliance and enhancing production efficiency by 10%</li>
+                            <li>Managed the full project lifecycle using Agile methodologies, strengthening client relationships and achieving a 20% increase in project success metrics</li>
+                            <li>Enhanced brand visibility and generated business leads through strategic exhibition management at the 2024 India Warehousing Show</li>
+                            <li>Contributed to a high-growth phase where the company achieved a 153.15% increase in EBITDA and a 127.93% rise in book net worth during the 2024 fiscal year</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Design Engineer Intern</h3>
-                            <span class="timeline-company">BGR Neo Robotics & Automation</span>
-                            <span class="timeline-date">May 2023 – July 2023</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Focused on 3D modeling and simulation with SolidWorks</li>
-                            <li>Enhanced robotic solutions and automation skills</li>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Design Engineer Intern</h3>
+                        <span class="experience-company">BGR Neo Robotics & Automation (Startup)</span>
+                        <span class="experience-period">May 2023 – July 2023</span>
+                    </div>
+                    <div class="experience-achievements">
+                        <ul>
+                            <li>Focused on 3D modeling and simulation with SolidWorks, enhancing robotic solutions and automation skills</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3 class="timeline-title">Project Engineer Intern</h3>
-                            <span class="timeline-company">Accurate Steel Forging Pvt Ltd</span>
-                            <span class="timeline-date">March 2023 – April 2023</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Analyzed manufacturing processes and recommended improvements</li>
-                            <li>Boosted production efficiency by 10%</li>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Project Engineer Intern</h3>
+                        <span class="experience-company">Accurate Steel Forging Pvt Ltd</span>
+                        <span class="experience-period">March 2023 – April 2023</span>
+                    </div>
+                    <div class="experience-achievements">
+                        <ul>
+                            <li>Analyzed manufacturing processes and recommended improvements that boosted production efficiency by 10%</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="section-number">06</div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-category">
+                    <h3 class="category-title">Programming</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">AI & Data Science</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Scikit-fuzzy</span>
+                        <span class="skill-tag">Open3D</span>
+                        <span class="skill-tag">MediaPipe</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Robotics & Simulation</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">ROS 2</span>
+                        <span class="skill-tag">Nvidia Isaac Sim</span>
+                        <span class="skill-tag">Gazebo</span>
+                        <span class="skill-tag">CoppeliaSim</span>
+                        <span class="skill-tag">Simulink</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">ABB RoboStudio</span>
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">Robotics System Toolbox</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Core Competencies</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Predictive Modeling</span>
+                        <span class="skill-tag">ANFIS</span>
+                        <span class="skill-tag">6D Pose Estimation</span>
+                        <span class="skill-tag">Control Systems</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">PLC</span>
+                        <span class="skill-tag">SCADA</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Robotic Hardware</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">ABB</span>
+                        <span class="skill-tag">Kawasaki</span>
+                        <span class="skill-tag">Kuka</span>
+                        <span class="skill-tag">FANUC Controllers</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Professional</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Project Lifecycle Management</span>
+                        <span class="skill-tag">Agile Methodologies</span>
+                        <span class="skill-tag">Client Engagement</span>
+                        <span class="skill-tag">RFQ & Cost Analysis</span>
                     </div>
                 </div>
             </div>
@@ -310,31 +575,71 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-number">07</div>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2 class="contact-title">Let's Connect</h2>
-                    <p class="contact-description">
-                        Ready to discuss robotics, AI, or automation solutions? 
-                        Let's explore how we can work together.
-                    </p>
+                    <h3>Let's Build Something Amazing Together</h3>
+                    <p>I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to chat about robotics and AI, feel free to reach out!</p>
+                    
                     <div class="contact-details">
                         <div class="contact-item">
-                            <span class="contact-label">Email</span>
-                            <a href="mailto:deepak.annanth@gmail.com" class="contact-value">deepak.annanth@gmail.com</a>
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div class="contact-text">
+                                <span class="contact-label">Phone</span>
+                                <a href="tel:+447818984644" class="contact-value">+44 7818984644</a>
+                            </div>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-label">Phone</span>
-                            <a href="tel:+447818984644" class="contact-value">+44 7818984644</a>
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div class="contact-text">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:deepakananth2001@gmail.com" class="contact-value">deepakananth2001@gmail.com</a>
+                            </div>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-label">Location</span>
-                            <span class="contact-value">East Ham, London</span>
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <div class="contact-text">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">London, UK</span>
+                            </div>
                         </div>
                     </div>
+
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/deepak-ananthapadman" class="social-link" target="_blank">LinkedIn</a>
-                        <a href="https://github.com/Dee-Nith" class="social-link" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/deepak-ananth-181001d160802n/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/Dee-Nith" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
                     </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="mailto:deepakananth2001@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -343,7 +648,16 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 Deepak Ananthapadman. All rights reserved.</p>
+            <div class="footer-text">
+                <p>&copy; 2025 Deepak Ananthapadman. All rights reserved.</p>
+                <p>Built with passion for robotics and AI innovation.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </footer>
 

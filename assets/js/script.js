@@ -1,409 +1,369 @@
-// Portfolio Website JavaScript
+// Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed nav
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
 
-    // Hero navigation smooth scrolling
-    const heroNextLink = document.querySelector('.next-link');
-    const heroNextArrow = document.querySelector('.next-arrow');
-    
-    if (heroNextLink) {
-        heroNextLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-
-    if (heroNextArrow) {
-        heroNextArrow.addEventListener('click', function() {
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                const offsetTop = aboutSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-
-    // CTA button smooth scrolling
-    const ctaButton = document.querySelector('.cta-button');
-    if (ctaButton) {
-        ctaButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-
-    // Navbar background on scroll
-    const navbar = document.querySelector('.nav');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(0, 0, 0, 0.9)';
-        }
-    });
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.project-card, .timeline-item, .stat-item, .skill-category');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
-
-    // Hero title is now static - no typing animation
-
-    // Counter animation for stats
-    const statNumbers = document.querySelectorAll('.stat-number');
-    const animateCounter = (element, target) => {
-        let current = 0;
-        const increment = target / 100;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = current.toFixed(1) + (target === 100 ? '%' : '');
-        }, 20);
-    };
-
-    // Observe stats for counter animation
-    const statsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumber = entry.target;
-                const text = statNumber.textContent;
-                
-                if (text.includes('49.2ms')) {
-                    animateCounter(statNumber, 49.2);
-                } else if (text.includes('2mm')) {
-                    statNumber.textContent = '±2mm';
-                } else if (text.includes('100%')) {
-                    animateCounter(statNumber, 100);
-                } else if (text.includes('90.3%')) {
-                    animateCounter(statNumber, 90.3);
-                }
-                
-                statsObserver.unobserve(statNumber);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    statNumbers.forEach(stat => {
-        statsObserver.observe(stat);
-    });
-
-    // Project card hover effects
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            navMenu.classList.remove('active');
         });
     });
+});
 
-    // Mobile menu toggle (if needed for smaller screens)
-    const createMobileMenu = () => {
-        const nav = document.querySelector('.nav-container');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        // Create mobile menu button
-        const mobileMenuBtn = document.createElement('button');
-        mobileMenuBtn.className = 'mobile-menu-btn';
-        mobileMenuBtn.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
-        
-        // Add mobile menu styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .mobile-menu-btn {
-                display: none;
-                flex-direction: column;
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 5px;
-            }
-            
-            .mobile-menu-btn span {
-                width: 25px;
-                height: 2px;
-                background: #ffffff;
-                margin: 3px 0;
-                transition: 0.3s;
-            }
-            
-            @media (max-width: 768px) {
-                .mobile-menu-btn {
-                    display: flex;
-                }
-                
-                .nav-menu {
-                    position: fixed;
-                    top: 80px;
-                    left: -100%;
-                    width: 100%;
-                    height: calc(100vh - 80px);
-                    background: rgba(0, 0, 0, 0.95);
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: center;
-                    padding-top: 50px;
-                    transition: left 0.3s ease;
-                }
-                
-                .nav-menu.active {
-                    left: 0;
-                }
-                
-                .nav-link {
-                    font-size: 18px;
-                    margin: 20px 0;
-                }
-            }
-        `;
-        
-        document.head.appendChild(style);
-        nav.appendChild(mobileMenuBtn);
-        
-        // Toggle mobile menu
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
-        });
-    };
+        }
+    });
+});
 
-    // Initialize mobile menu for smaller screens
-    if (window.innerWidth <= 768) {
-        createMobileMenu();
+// Navbar Background on Scroll
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+    } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.borderBottom = 'none';
     }
+});
 
-    // Spline viewer interaction enhancement
+// Active Navigation Link Highlighting
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Spline 3D Robot Integration
+document.addEventListener('DOMContentLoaded', function() {
     const splineViewer = document.querySelector('spline-viewer');
     
     if (splineViewer) {
-        // Keep robot visible from the start
+        // Ensure Spline viewer is immediately visible
         splineViewer.style.opacity = '1';
         splineViewer.style.visibility = 'visible';
         
-        // Ensure Spline loads with proper settings
-        splineViewer.addEventListener('load', () => {
-            console.log('Spline viewer loaded successfully');
+        // Handle Spline loading and animations
+        splineViewer.addEventListener('load', function() {
+            console.log('Spline 3D robot loaded successfully');
             
-            // Trigger any animations in the Spline scene
-            try {
-                // Try to trigger the zoom-out animation if it exists
-                if (splineViewer.spline && splineViewer.spline.triggerEvent) {
-                    splineViewer.spline.triggerEvent('zoomOut');
+            // Attempt to trigger any animations after a short delay
+            setTimeout(() => {
+                try {
+                    // Method 1: Direct spline object access
+                    if (splineViewer.spline) {
+                        splineViewer.spline.triggerEvent('zoomOut');
+                        console.log('Animation triggered via spline object');
+                    }
+                } catch (e) {
+                    console.log('Method 1 failed:', e);
                 }
-            } catch (e) {
-                console.log('Animation trigger not available:', e);
-            }
+                
+                try {
+                    // Method 2: Custom event dispatch
+                    splineViewer.dispatchEvent(new CustomEvent('spline-trigger', { 
+                        detail: 'zoomOut' 
+                    }));
+                    console.log('Animation triggered via custom event');
+                } catch (e) {
+                    console.log('Method 2 failed:', e);
+                }
+            }, 1000);
         });
-        
+
         // Force visibility after a short delay
         setTimeout(() => {
             splineViewer.style.opacity = '1';
             splineViewer.style.visibility = 'visible';
         }, 100);
-        
+
         // Add interaction hints
-        const addInteractionHint = () => {
-            const hint = document.createElement('div');
-            hint.className = 'interaction-hint';
-            hint.innerHTML = 'Drag to rotate • Scroll to zoom';
-            hint.style.cssText = `
-                position: absolute;
-                bottom: 100px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: rgba(255, 255, 255, 0.6);
-                font-size: 12px;
-                letter-spacing: 1px;
-                z-index: 4;
-                pointer-events: none;
-                animation: fadeInOut 3s ease-in-out infinite;
-            `;
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes fadeInOut {
-                    0%, 100% { opacity: 0; }
-                    50% { opacity: 1; }
-                }
-            `;
-            document.head.appendChild(style);
-            document.body.appendChild(hint);
-            
-            // Remove hint after 10 seconds
-            setTimeout(() => {
-                if (hint.parentNode) {
-                    hint.parentNode.removeChild(hint);
-                }
-            }, 10000);
-        };
-        
-        // Show interaction hint after robot loads
-        setTimeout(addInteractionHint, 4000);
-    }
-
-    // Page transition effects
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    });
-
-    // Show first section immediately
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        heroSection.style.opacity = '1';
-        heroSection.style.transform = 'translateY(0)';
-    }
-
-    // Intersection observer for section animations
-    const sectionObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+        splineViewer.addEventListener('mouseenter', function() {
+            console.log('Mouse entered 3D robot area');
         });
-    }, { threshold: 0.1 });
 
-    sections.forEach(section => {
-        if (section !== heroSection) {
-            sectionObserver.observe(section);
-        }
-    });
-
-    // Add cursor trail effect (optional)
-    const createCursorTrail = () => {
-        const trail = [];
-        const trailLength = 20;
-        
-        for (let i = 0; i < trailLength; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'cursor-trail';
-            dot.style.cssText = `
-                position: fixed;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 255, 255, ${1 - i / trailLength});
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                transition: all 0.1s ease;
-            `;
-            document.body.appendChild(dot);
-            trail.push(dot);
-        }
-        
-        let mouseX = 0, mouseY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
+        splineViewer.addEventListener('click', function() {
+            console.log('3D robot clicked');
         });
-        
-        const animateTrail = () => {
-            let x = mouseX;
-            let y = mouseY;
-            
-            trail.forEach((dot, index) => {
-                const nextDot = trail[index + 1] || { offsetLeft: x, offsetTop: y };
-                
-                dot.style.left = x + 'px';
-                dot.style.top = y + 'px';
-                
-                x += (nextDot.offsetLeft - x) * 0.3;
-                y += (nextDot.offsetTop - y) * 0.3;
-            });
-            
-            requestAnimationFrame(animateTrail);
-        };
-        
-        animateTrail();
-    };
-
-    // Uncomment to enable cursor trail effect
-    // createCursorTrail();
-
-    console.log('Portfolio website loaded successfully!');
+    }
 });
+
+// Intersection Observer for Fade-in Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', function() {
+    const animateElements = document.querySelectorAll('.project-card, .education-item, .experience-item, .achievement-item, .skill-tag');
+    animateElements.forEach(el => {
+        observer.observe(el);
+    });
+});
+
+// Counter Animation for Achievement Numbers
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    function updateCounter() {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start) + (target.toString().includes('%') ? '%' : '');
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    updateCounter();
+}
+
+// Trigger counter animations when achievements come into view
+const achievementObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const numberElement = entry.target.querySelector('.achievement-number');
+            const text = numberElement.textContent;
+            
+            // Extract numeric value
+            const numericValue = parseFloat(text.replace(/[^\d.-]/g, ''));
+            
+            if (numericValue) {
+                animateCounter(numberElement, text);
+            }
+            
+            achievementObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const achievements = document.querySelectorAll('.achievement-item');
+    achievements.forEach(achievement => {
+        achievementObserver.observe(achievement);
+    });
+});
+
+// Parallax Effect for Hero Section
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroContent = document.querySelector('.hero-text-overlay');
+    
+    if (heroContent) {
+        const rate = scrolled * -0.5;
+        heroContent.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
+    }
+});
+
+// Typing Effect for Hero Title (Optional - can be enabled)
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Form Validation and Enhancement
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Basic validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Create mailto link
+            const mailtoLink = `mailto:deepakananth2001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = '#00ff88';
+            submitBtn.style.color = '#0a0a0a';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = 'transparent';
+                submitBtn.style.color = '#ffffff';
+                this.reset();
+            }, 3000);
+        });
+    }
+});
+
+// Skill Tags Hover Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const skillTags = document.querySelectorAll('.skill-tag');
+    
+    skillTags.forEach(tag => {
+        tag.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
+        
+        tag.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+
+// Project Cards 3D Tilt Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+    });
+});
+
+// Loading Animation
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+    
+    // Trigger hero animations
+    const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-stats, .hero-tagline');
+    heroElements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+});
+
+// Preload critical resources
+document.addEventListener('DOMContentLoaded', function() {
+    // Preload fonts
+    const fontLinks = [
+        'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap'
+    ];
+    
+    fontLinks.forEach(href => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'style';
+        link.href = href;
+        document.head.appendChild(link);
+    });
+});
+
+// Performance optimization: Lazy load non-critical elements
+const lazyElements = document.querySelectorAll('[data-lazy]');
+const lazyObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const element = entry.target;
+            element.src = element.dataset.lazy;
+            element.classList.remove('lazy');
+            lazyObserver.unobserve(element);
+        }
+    });
+});
+
+lazyElements.forEach(element => {
+    lazyObserver.observe(element);
+});
+
+// Error handling for Spline viewer
+window.addEventListener('error', function(e) {
+    if (e.message.includes('spline') || e.message.includes('Spline')) {
+        console.warn('Spline 3D viewer encountered an error:', e.message);
+        // Fallback: ensure robot background is still visible
+        const robotBackground = document.querySelector('.hero-robot-background');
+        if (robotBackground) {
+            robotBackground.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)';
+        }
+    }
+});
+
+console.log('Portfolio website JavaScript loaded successfully!');
