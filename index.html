@@ -24,9 +24,6 @@
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">DEEPAK</span>
-            </div>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link">Home</a>
@@ -61,45 +58,65 @@
             <div class="hero-robot-background">
                 <spline-viewer 
                     url="https://prod.spline.design/G1uvC3MAloAxvYRH/scene.splinecode"
-                    auto-rotate="true"
-                    auto-rotate-speed="1"
+                    auto-rotate="false"
                     interactive="true"
-                    loading="eager">
+                    loading="eager"
+                    camera-controls="true"
+                    touch-action="auto"
+                    pointer-events="auto">
                 </spline-viewer>
             </div>
-            <div class="hero-text-overlay">
-                <h1 class="hero-title orbitron">DEEPAK ANANTHAPADMAN</h1>
-                <div class="hero-subtitle">
-                    Mechanical Engineer | Robotics Automation Specialist
-                </div>
-                <div class="hero-stats">
-                    <span class="stat-item">153% ROI Growth</span>
-                    <span class="stat-separator">•</span>
-                    <span class="stat-item">±2mm Precision</span>
-                    <span class="stat-separator">•</span>
-                    <span class="stat-item">20.3 FPS Real-time</span>
-                </div>
-                <div class="hero-tagline">
-                    Building Intelligent Automation Systems for the Future
-                </div>
-                <div class="hero-contact">
-                    <div class="contact-item">
-                        <i class="fas fa-phone contact-icon"></i>
-                        <span>+44 7818984644</span>
+            <!-- Clean Hero Content -->
+            <div class="hero-content-clean">
+                <!-- Left Side - Name & Description -->
+                <div class="hero-left-clean">
+                    <div class="hero-question">Who is building the future of robotics?</div>
+                    <h1 class="hero-name-clean">DEEPAK ANANTHAPADMAN</h1>
+                    <div class="hero-description">
+                        <p>Mechanical Engineer and Robotics Automation Specialist. Transforming complex automation challenges into intelligent, profit-generating solutions through AI, Machine Learning, and advanced Control Systems.</p>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope contact-icon"></i>
-                        <span>deepakananth2001@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt contact-icon"></i>
-                        <span>London, UK</span>
+                    <div class="hero-stats-clean">
+                        <div class="stat-item-clean">
+                            <span class="stat-number-clean">153%</span>
+                            <span class="stat-label-clean">ROI Growth</span>
+                        </div>
+                        <div class="stat-item-clean">
+                            <span class="stat-number-clean">±2mm</span>
+                            <span class="stat-label-clean">Precision</span>
+                        </div>
+                        <div class="stat-item-clean">
+                            <span class="stat-number-clean">20.3 FPS</span>
+                            <span class="stat-label-clean">Real-time</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-cta">
-                    <a href="#projects" class="cta-button">View My Work</a>
-                    <a href="#contact" class="cta-button secondary">Get In Touch</a>
+
+                <!-- Right Side - Contact -->
+                <div class="hero-right-clean">
+                    <div class="contact-info-clean">
+                        <div class="contact-item-clean">
+                            <span class="contact-label-clean">Email</span>
+                            <a href="mailto:deepakananth2001@gmail.com" class="contact-value-clean">deepakananth2001@gmail.com</a>
+                        </div>
+                        <div class="contact-item-clean">
+                            <span class="contact-label-clean">Phone</span>
+                            <a href="tel:+447818984644" class="contact-value-clean">+44 7818984644</a>
+                        </div>
+                        <div class="contact-item-clean">
+                            <span class="contact-label-clean">Location</span>
+                            <span class="contact-value-clean">London, UK</span>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Robot Interaction Hint -->
+            <div class="robot-hint">
+                <div class="hint-content">
+                    <span class="hint-text">Move your mouse to interact with the robot</span>
+                    <div class="hint-arrow">↗</div>
+                </div>
+            </div>
             </div>
         </div>
     </section>
@@ -107,12 +124,10 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="section-container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-number">01</div>
-            </div>
-            <div class="about-content">
+            <div class="about-layout">
                 <div class="about-text">
+                    <h2 class="about-title">ABOUT</h2>
+                    <div class="title-underline"></div>
                     <p class="about-description">
                         A proactive Mechanical Engineer and recent MSc Advanced Robotics graduate specializing in AI, Machine Learning, 
                         Computer Vision, and advanced Control Systems. I possess hands-on experience in full-cycle project management 
@@ -123,24 +138,20 @@
                         in robotics, aviation, and healthcare. My journey spans from developing industry-ready computer vision systems 
                         at Queen Mary University to delivering automation solutions that generated 153% EBITDA growth for global clients.
                     </p>
-                    <div class="key-achievements">
-                        <div class="achievement-item">
-                            <span class="achievement-number">153%</span>
-                            <span class="achievement-text">ROI Growth</span>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-number">±2mm</span>
-                            <span class="achievement-text">Precision</span>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-number">20.3</span>
-                            <span class="achievement-text">FPS Real-time</span>
-                        </div>
-                        <div class="achievement-item">
-                            <span class="achievement-number">100%</span>
-                            <span class="achievement-text">Detection Rate</span>
-                        </div>
+                    <div class="about-actions">
+                        <a href="assets/Deepak_Resume(2025).pdf" download="Deepak_Ananthapadman_Resume.pdf" class="resume-download-btn">
+                            <span class="btn-icon">📄</span>
+                            <span class="btn-text">Download Resume</span>
+                        </a>
                     </div>
+                    <div class="about-location">
+                        <div class="location-line"></div>
+                        <span>London, United Kingdom</span>
+                        <div class="location-line"></div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/My_pic.jpg" alt="Deepak Ananthapadman - Mechanical Engineer & Robotics Specialist" class="profile-image">
                 </div>
             </div>
         </div>
@@ -187,161 +198,218 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Multi-modal AI 6D Pose Recognition</h3>
-                        <span class="project-type">MSc Thesis • Computer Vision</span>
-                    </div>
-                    <div class="project-description">
-                        <p>Developed a complete end-to-end system for 6D pose estimation, designing a 4-stage modular pipeline that integrates deep learning (YOLOv8) with geometric computer vision (PCA, RGB-D fusion) and Meta AI's MCC (Multiview Compressive Coding for 3D Reconstruction).</p>
-                    </div>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">49.2ms</span>
-                            <span class="metric-label">Processing Time</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">20.3 FPS</span>
-                            <span class="metric-label">Real-time Performance</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">±2mm</span>
-                            <span class="metric-label">Position Accuracy</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">100%</span>
-                            <span class="metric-label">Detection Rate</span>
+                    <div class="project-image">
+                        <div class="image-gallery">
+                            <img src="assets/images/6D/1-ezgif.com-video-to-gif-converter.gif" 
+                                 alt="6D Pose Recognition Demo" 
+                                 class="main-image">
+                            <img src="assets/images/6D/Pipe_lline.png" 
+                                 alt="6D Pose Recognition Pipeline" 
+                                 class="secondary-image"
+                                 onerror="this.style.display='none'">
                         </div>
                     </div>
-                    <div class="project-impact">
-                        <strong>Impact:</strong> Resolved a key trade-off between speed and accuracy in 6D pose estimation, creating a practical solution with direct applications in industrial automation for pick-and-place and quality control.
-                    </div>
-                    <div class="project-tech">
-                        <strong>Technologies:</strong> Python, PyTorch, YOLOv8, Open3D, Meta AI MCC
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Multi_modal_AI_6D_Pose_Recognition" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Multi-modal AI 6D Pose Recognition</h3>
+                            <span class="project-type">MSc Thesis • Computer Vision</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Developed a complete end-to-end system for 6D pose estimation, designing a 4-stage modular pipeline that integrates deep learning (YOLOv8) with geometric computer vision (PCA, RGB-D fusion) and Meta AI's MCC (Multiview Compressive Coding for 3D Reconstruction).</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">49.2ms</span>
+                                <span class="metric-label">Processing Time</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">20.3 FPS</span>
+                                <span class="metric-label">Real-time Performance</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">±2mm</span>
+                                <span class="metric-label">Position Accuracy</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Detection Rate</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong>Impact:</strong> Resolved a key trade-off between speed and accuracy in 6D pose estimation, creating a practical solution with direct applications in industrial automation for pick-and-place and quality control.
+                        </div>
+                        <div class="project-tech">
+                            <strong>Technologies:</strong> Python, PyTorch, YOLOv8, Open3D, Meta AI MCC
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dee-Nith/Multi_modal_AI_6D_Pose_Recognition" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Aircraft Taxi Time Prediction</h3>
-                        <span class="project-type">Machine Learning • Aviation</span>
-                    </div>
-                    <div class="project-description">
-                        <p>Developed a machine learning system to predict aircraft taxi times, implementing both a custom-built neural network and an Adaptive Neuro-Fuzzy Inference System (ANFIS).</p>
-                    </div>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">4.05 min</span>
-                            <span class="metric-label">RMSE</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">Real-time</span>
-                            <span class="metric-label">Processing</span>
+                    <div class="project-image">
+                        <div class="image-gallery multiple-images">
+                            <img src="assets/images/Aircraft/anfis_results.png" 
+                                 alt="ANFIS Results" 
+                                 class="main-image">
+                            <img src="assets/images/Aircraft/bpnn_results.png" 
+                                 alt="BPNN Results" 
+                                 class="secondary-image"
+                                 onerror="this.style.display='none'">
+                            <img src="assets/images/Aircraft/model_comparison.png" 
+                                 alt="Model Comparison" 
+                                 class="secondary-image"
+                                 onerror="this.style.display='none'">
                         </div>
                     </div>
-                    <div class="project-impact">
-                        <strong>Impact:</strong> Created a predictive tool to enhance airport operational efficiency, achieving a low prediction error with the ANFIS model.
-                    </div>
-                    <div class="project-tech">
-                        <strong>Technologies:</strong> Python, TensorFlow, Scikit-fuzzy, Pandas
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Aircraft-Taxi-Prediction" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Aircraft Taxi Time Prediction</h3>
+                            <span class="project-type">Machine Learning • Aviation</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Developed a machine learning system to predict aircraft taxi times, implementing both a custom-built neural network and an Adaptive Neuro-Fuzzy Inference System (ANFIS).</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">4.05 min</span>
+                                <span class="metric-label">RMSE</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">Real-time</span>
+                                <span class="metric-label">Processing</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong>Impact:</strong> Created a predictive tool to enhance airport operational efficiency, achieving a low prediction error with the ANFIS model.
+                        </div>
+                        <div class="project-tech">
+                            <strong>Technologies:</strong> Python, TensorFlow, Scikit-fuzzy, Pandas
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dee-Nith/Aircraft-Taxi-Prediction" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Medical Image Classification</h3>
-                        <span class="project-type">Deep Learning • Healthcare</span>
-                    </div>
-                    <div class="project-description">
-                        <p>Developed a deep learning system for automated coronary artery lesion classification from 3,700 Optical Coherence Tomography (OCT) images using DenseNet121 and transfer learning.</p>
-                    </div>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">90.3%</span>
-                            <span class="metric-label">Test Accuracy</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">3,700+</span>
-                            <span class="metric-label">Images</span>
+                    <div class="project-image">
+                        <div class="image-gallery">
+                            <img src="assets/images/OCT/OCT.png" 
+                                 alt="Medical Image Classification - OCT Analysis" 
+                                 class="main-image">
                         </div>
                     </div>
-                    <div class="project-impact">
-                        <strong>Impact:</strong> Created a production-ready system with pre-trained models, providing a valuable tool for clinical decision support in cardiology.
-                    </div>
-                    <div class="project-tech">
-                        <strong>Technologies:</strong> Python, PyTorch, DenseNet121, OpenCV
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Medical-Image-Classification" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Medical Image Classification</h3>
+                            <span class="project-type">Deep Learning • Healthcare</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Developed a deep learning system for automated coronary artery lesion classification from 3,700 Optical Coherence Tomography (OCT) images using DenseNet121 and transfer learning.</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">90.3%</span>
+                                <span class="metric-label">Test Accuracy</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">3,700+</span>
+                                <span class="metric-label">Images</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong>Impact:</strong> Created a production-ready system with pre-trained models, providing a valuable tool for clinical decision support in cardiology.
+                        </div>
+                        <div class="project-tech">
+                            <strong>Technologies:</strong> Python, PyTorch, DenseNet121, OpenCV
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dee-Nith/Medical-Image-Classification" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Robotics Control Systems & Simulation</h3>
-                        <span class="project-type">Control Systems • Simulation</span>
-                    </div>
-                    <div class="project-description">
-                        <p>Developed an advanced robotics simulation platform using MATLAB/Simulink featuring computed torque control and dynamic compensation.</p>
-                    </div>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">&lt;2%</span>
-                            <span class="metric-label">Tracking Error</span>
+                    <div class="project-image">
+                        <div class="image-gallery">
+                            <img src="assets/images/Matlab/Main file.png" 
+                                 alt="Robotics Control Systems Simulation - MATLAB/Simulink" 
+                                 class="main-image">
                         </div>
                     </div>
-                    <div class="project-impact">
-                        <strong>Impact:</strong> Created a high-fidelity, scalable simulation platform for designing, testing, and validating advanced control algorithms for robotic systems.
-                    </div>
-                    <div class="project-tech">
-                        <strong>Technologies:</strong> MATLAB, Simulink, Robotics System Toolbox
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Robotics-Control-Simulation" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Robotics Control Systems & Simulation</h3>
+                            <span class="project-type">Control Systems • Simulation</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Developed an advanced robotics simulation platform using MATLAB/Simulink featuring computed torque control and dynamic compensation.</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">&lt;2%</span>
+                                <span class="metric-label">Tracking Error</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong>Impact:</strong> Created a high-fidelity, scalable simulation platform for designing, testing, and validating advanced control algorithms for robotic systems.
+                        </div>
+                        <div class="project-tech">
+                            <strong>Technologies:</strong> MATLAB, Simulink, Robotics System Toolbox
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dee-Nith/Robotics-Control-Simulation" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Healthcare Monitoring System</h3>
-                        <span class="project-type">Computer Vision • IoT</span>
-                    </div>
-                    <div class="project-description">
-                        <p>Developed a real-time monitoring system using a multi-modal computer vision pipeline (MediaPipe) and a Random Forest Classifier to detect and alert on high-risk activities.</p>
-                    </div>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">&lt;100ms</span>
-                            <span class="metric-label">Latency</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">20 FPS</span>
-                            <span class="metric-label">Processing</span>
+                    <div class="project-image">
+                        <div class="image-gallery">
+                            <img src="assets/images/Elderly/Live results.gif" 
+                                 alt="Healthcare Monitoring System - Live Results" 
+                                 class="main-image">
                         </div>
                     </div>
-                    <div class="project-impact">
-                        <strong>Impact:</strong> Created a low-latency system to improve patient safety through automated monitoring, processing video on standard hardware.
-                    </div>
-                    <div class="project-tech">
-                        <strong>Technologies:</strong> Python, MediaPipe, OpenCV, Scikit-learn
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Dee-Nith/Healthcare-Monitoring" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">Healthcare Monitoring System</h3>
+                            <span class="project-type">Computer Vision • IoT</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Developed a real-time monitoring system using a multi-modal computer vision pipeline (MediaPipe) and a Random Forest Classifier to detect and alert on high-risk activities.</p>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">&lt;100ms</span>
+                                <span class="metric-label">Latency</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">20 FPS</span>
+                                <span class="metric-label">Processing</span>
+                            </div>
+                        </div>
+                        <div class="project-impact">
+                            <strong>Impact:</strong> Created a low-latency system to improve patient safety through automated monitoring, processing video on standard hardware.
+                        </div>
+                        <div class="project-tech">
+                            <strong>Technologies:</strong> Python, MediaPipe, OpenCV, Scikit-learn
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Dee-Nith/Healthcare-Monitoring" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> Source Code
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

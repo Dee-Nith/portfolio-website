@@ -68,57 +68,120 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Spline 3D Robot Integration
+// Spline 3D Robot Integration with Enhanced Animation
 document.addEventListener('DOMContentLoaded', function() {
     const splineViewer = document.querySelector('spline-viewer');
     
     if (splineViewer) {
+        console.log('Spline viewer found, initializing...');
+        
         // Ensure Spline viewer is immediately visible
         splineViewer.style.opacity = '1';
         splineViewer.style.visibility = 'visible';
         
-        // Handle Spline loading and animations
+        // Multiple methods to trigger animations
+        const triggerAnimations = () => {
+            console.log('Attempting to trigger Spline animations...');
+            
+            // Method 1: Direct spline object access
+            try {
+                if (splineViewer.spline) {
+                    console.log('Spline object found, triggering animations...');
+                    
+                    // Try common animation names
+                    const animations = ['zoomOut', 'rotate', 'idle', 'default', 'animation'];
+                    animations.forEach(anim => {
+                        try {
+                            splineViewer.spline.triggerEvent(anim);
+                            console.log(`Animation '${anim}' triggered successfully`);
+                        } catch (e) {
+                            console.log(`Animation '${anim}' failed:`, e.message);
+                        }
+                    });
+                }
+            } catch (e) {
+                console.log('Method 1 failed:', e);
+            }
+            
+            // Method 2: Custom event dispatch
+            try {
+                splineViewer.dispatchEvent(new CustomEvent('spline-trigger', { 
+                    detail: { action: 'play', animation: 'zoomOut' }
+                }));
+                console.log('Custom event dispatched');
+            } catch (e) {
+                console.log('Method 2 failed:', e);
+            }
+            
+            // Method 3: Try to access internal spline methods
+            try {
+                if (splineViewer._spline) {
+                    console.log('Internal spline object found');
+                    // Try to trigger any available animations
+                    if (splineViewer._spline.triggerEvent) {
+                        splineViewer._spline.triggerEvent('zoomOut');
+                    }
+                }
+            } catch (e) {
+                console.log('Method 3 failed:', e);
+            }
+        };
+        
+        // Handle Spline loading
         splineViewer.addEventListener('load', function() {
             console.log('Spline 3D robot loaded successfully');
-            
-            // Attempt to trigger any animations after a short delay
-            setTimeout(() => {
-                try {
-                    // Method 1: Direct spline object access
-                    if (splineViewer.spline) {
-                        splineViewer.spline.triggerEvent('zoomOut');
-                        console.log('Animation triggered via spline object');
-                    }
-                } catch (e) {
-                    console.log('Method 1 failed:', e);
-                }
-                
-                try {
-                    // Method 2: Custom event dispatch
-                    splineViewer.dispatchEvent(new CustomEvent('spline-trigger', { 
-                        detail: 'zoomOut' 
-                    }));
-                    console.log('Animation triggered via custom event');
-                } catch (e) {
-                    console.log('Method 2 failed:', e);
-                }
-            }, 1000);
+            triggerAnimations();
         });
-
-        // Force visibility after a short delay
+        
+        // Also try after a delay in case load event doesn't fire
+        setTimeout(() => {
+            console.log('Delayed animation trigger attempt');
+            triggerAnimations();
+        }, 2000);
+        
+        // Try again after longer delay
+        setTimeout(() => {
+            console.log('Final animation trigger attempt');
+            triggerAnimations();
+        }, 5000);
+        
+        // Force visibility
         setTimeout(() => {
             splineViewer.style.opacity = '1';
             splineViewer.style.visibility = 'visible';
         }, 100);
-
-        // Add interaction hints
+        
+        // Add interaction events
         splineViewer.addEventListener('mouseenter', function() {
             console.log('Mouse entered 3D robot area');
+            // Try to trigger hover animations
+            try {
+                if (splineViewer.spline) {
+                    splineViewer.spline.triggerEvent('hover');
+                }
+            } catch (e) {
+                console.log('Hover animation failed:', e);
+            }
         });
-
+        
         splineViewer.addEventListener('click', function() {
             console.log('3D robot clicked');
+            // Try to trigger click animations
+            try {
+                if (splineViewer.spline) {
+                    splineViewer.spline.triggerEvent('click');
+                }
+            } catch (e) {
+                console.log('Click animation failed:', e);
+            }
         });
+        
+        // Monitor for any spline events
+        splineViewer.addEventListener('spline-event', function(e) {
+            console.log('Spline event received:', e.detail);
+        });
+    } else {
+        console.log('Spline viewer not found');
     }
 });
 
