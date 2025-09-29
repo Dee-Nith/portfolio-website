@@ -1275,6 +1275,68 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .section-container {
+        padding: 80px 24px;
+    }
+
+    .nav-container {
+        top: 16px;
+        right: 16px;
+    }
+
+    .hero-content-clean {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    .hero-name-clean {
+        font-size: 52px;
+    }
+
+    .hero-description p {
+        font-size: 17px;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        padding: 0 24px;
+    }
+
+    .about-image {
+        height: 80vh;
+    }
+
+    .profile-image {
+        height: 80vh;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .experience-timeline::before {
+        left: 40px;
+    }
+
+    .experience-item {
+        padding-left: 80px;
+    }
+
+    .experience-item::before {
+        left: 32px;
+    }
+}
 @media (max-width: 768px) {
     .nav-container {
         position: fixed;
@@ -1320,8 +1382,8 @@ body {
 
     .hero-content-clean {
         grid-template-columns: 1fr;
-        padding: 40px 30px;
-        gap: 40px;
+        padding: 32px 20px;
+        gap: 28px;
     }
 
     .hero-left-clean {
@@ -1335,27 +1397,36 @@ body {
     }
 
     .hero-name-clean {
-        font-size: 42px;
+        font-size: 34px;
+        line-height: 1.0;
         letter-spacing: 1px;
     }
 
+    .hero-question {
+        font-size: 14px;
+    }
+
     .hero-description p {
-        font-size: 16px;
+        font-size: 14px;
+        max-width: 680px;
     }
 
     .hero-stats-clean {
         justify-content: center;
-        gap: 30px;
+        gap: 20px;
     }
 
     .stat-number-clean {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .contact-info-clean {
-        min-width: 250px;
-        align-items: center;
+    .stat-label-clean {
+        font-size: 10px;
+        letter-spacing: 0.5px;
     }
+
+    /* Hide hero contact on mobile to reduce clutter */
+    .contact-info-clean { display: none; }
 
     .contact-item-clean {
         align-items: center;
