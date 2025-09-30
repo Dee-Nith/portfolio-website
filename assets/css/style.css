@@ -1,3 +1,86 @@
+.endorsements {
+    background: #0a0a0a;
+}
+
+.endorsements-marquee {
+    position: relative;
+    overflow: hidden;
+    display: flex; /* place tracks side-by-side for seamless loop */
+}
+
+.endorsements-track {
+    display: flex;
+    gap: 24px;
+    padding: 10px 0 20px;
+    will-change: transform;
+    min-width: max-content; /* width equals its contents */
+    flex: 0 0 auto; /* prevent shrinking so two tracks align horizontally */
+    animation: endorsements-marquee 30s linear infinite;
+}
+
+.endorsements-marquee:hover .endorsements-track {
+    animation-play-state: paused;
+}
+
+@keyframes endorsements-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.endorsement-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    min-width: 260px;
+}
+
+.endorsement-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.endorsement-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover;
+    background: #111;
+}
+
+.endorsement-logo-fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.endorsement-name {
+    font-weight: 600;
+}
+
+.endorsement-company {
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.endorsement-quote {
+    font-size: 12px;
+    color: #b0b0b0;
+    margin-top: 2px;
+}
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -696,10 +779,44 @@ body {
     background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
 }
 
+
+/* Projects grid — revert to static grid layout */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 40px;
+    overflow: visible;
+    padding-bottom: 0;
+}
+
+/* Neutralize marquee wrappers and hide duplicate track */
+#projects-grid .projects-track { display: contents; animation: none !important; }
+#projects-grid .projects-track[aria-hidden="true"] { display: none; }
+
+.project-card { flex: initial; }
+
+.projects-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.view-more-btn {
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background: #ffffff;
+    color: #0a0a0a;
+    transform: translateY(-2px);
 }
 
 .project-card {
@@ -1044,15 +1161,23 @@ body {
 }
 
 .skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 10px 16px;
     border-radius: 25px;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 1px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+}
+
+.skill-tag i {
+    font-size: 14px;
+    opacity: 0.9;
 }
 
 .skill-tag:hover {
@@ -1313,11 +1438,7 @@ body {
         height: 80vh;
     }
 
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
+    /* gap controlled by grid */
 
     .contact-content {
         display: grid;
@@ -1511,9 +1632,7 @@ body {
         font-size: 16px;
     }
 
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
+    /* gap controlled by grid */
 
     .contact-content {
         grid-template-columns: 1fr;

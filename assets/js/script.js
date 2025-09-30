@@ -1,5 +1,57 @@
 // Mobile Navigation Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Utility: fallback avatar for endorsement logos
+    window.createLogoFallback = function(text) {
+        const span = document.createElement('span');
+        span.className = 'endorsement-logo-fallback';
+        span.textContent = text;
+        return span;
+    };
+    // Projects: horizontal scroll (no view-more needed)
+    const grid = document.getElementById('projects-grid');
+    if (grid) {
+        // Enable mouse-wheel horizontal scroll on trackpads
+        grid.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                grid.scrollLeft += e.deltaY;
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Auto-scroll in an infinite loop at a readable pace
+        let scrollSpeed = 1.2; // pixels per frame (~72px/sec at 60fps)
+        let rafId;
+        let intervalId;
+        function startAutoScroll() {
+            cancelAnimationFrame(rafId);
+            clearInterval(intervalId);
+            function step() {
+                grid.scrollLeft += scrollSpeed;
+                // Loop seamlessly: when near end, jump back to start
+                if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1) {
+                    grid.scrollLeft = 0;
+                }
+                rafId = requestAnimationFrame(step);
+            }
+            rafId = requestAnimationFrame(step);
+            // Fallback timer in case RAF is throttled
+            intervalId = setInterval(() => {
+                grid.scrollLeft += scrollSpeed;
+                if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 1) {
+                    grid.scrollLeft = 0;
+                }
+            }, 1000 / 60);
+        }
+
+        // Pause on hover/focus for readability; resume on leave
+        grid.addEventListener('mouseenter', () => { cancelAnimationFrame(rafId); clearInterval(intervalId); });
+        grid.addEventListener('mouseleave', startAutoScroll);
+        grid.addEventListener('focusin', () => { cancelAnimationFrame(rafId); clearInterval(intervalId); });
+        grid.addEventListener('focusout', startAutoScroll);
+
+        // Start after initial load
+        startAutoScroll();
+    }
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
