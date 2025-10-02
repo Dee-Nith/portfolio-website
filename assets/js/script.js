@@ -481,4 +481,153 @@ window.addEventListener('error', function(e) {
     }
 });
 
+// Copy functionality for contact section
+document.addEventListener('DOMContentLoaded', function() {
+    // Individual copy buttons
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', async function() {
+            const textToCopy = this.getAttribute('data-copy');
+            
+            try {
+                await navigator.clipboard.writeText(textToCopy);
+                
+                // Visual feedback
+                this.classList.add('copied');
+                const originalIcon = this.querySelector('i').className;
+                this.querySelector('i').className = 'fas fa-check';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    this.classList.remove('copied');
+                    this.querySelector('i').className = originalIcon;
+                }, 2000);
+                
+                // Show toast notification
+                showToast(`${textToCopy} copied to clipboard!`);
+                
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                showToast('Failed to copy. Please try again.', 'error');
+            }
+        });
+    });
+    
+    // Copy all contact info button
+    const copyAllBtn = document.getElementById('copyAllBtn');
+    if (copyAllBtn) {
+        copyAllBtn.addEventListener('click', async function() {
+            const contactInfo = {
+                phone: '+44 7818984644',
+                email: 'deepakananth2001@gmail.com',
+                location: 'London, UK',
+                linkedin: 'https://www.linkedin.com/in/deepak-ananth-181001d160802n/',
+                github: 'https://github.com/Dee-Nith'
+            };
+            
+            const formattedText = `Deepak Ananthapadman
+Mechanical Engineer | Robotics Automation Specialist
+
+Contact Information:
+Phone: ${contactInfo.phone}
+Email: ${contactInfo.email}
+Location: ${contactInfo.location}
+
+Social Links:
+LinkedIn: ${contactInfo.linkedin}
+GitHub: ${contactInfo.github}`;
+            
+            try {
+                await navigator.clipboard.writeText(formattedText);
+                
+                // Visual feedback
+                this.classList.add('copied');
+                const originalIcon = this.querySelector('i').className;
+                this.querySelector('i').className = 'fas fa-check';
+                
+                // Reset after 3 seconds
+                setTimeout(() => {
+                    this.classList.remove('copied');
+                    this.querySelector('i').className = originalIcon;
+                }, 3000);
+                
+                showToast('All contact information copied to clipboard!');
+                
+            } catch (err) {
+                console.error('Failed to copy contact info: ', err);
+                showToast('Failed to copy. Please try again.', 'error');
+            }
+        });
+    }
+});
+
+// Toast notification function
+function showToast(message, type = 'success') {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <div class="toast-content">
+            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add toast styles
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? 'linear-gradient(135deg, #00ff88 0%, #00cc6a 100%)' : 'linear-gradient(135deg, #ff4444 0%, #cc0000 100%)'};
+        color: ${type === 'success' ? '#000000' : '#ffffff'};
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 10000;
+        font-size: 14px;
+        font-weight: 500;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+    `;
+    
+    // Add content styles
+    const content = toast.querySelector('.toast-content');
+    content.style.cssText = `
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    `;
+    
+    // Add icon styles
+    const icon = toast.querySelector('i');
+    icon.style.cssText = `
+        font-size: 16px;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Animate in
+    setTimeout(() => {
+        toast.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+
 console.log('Portfolio website JavaScript loaded successfully!');
