@@ -990,6 +990,10 @@ body {
     overflow: hidden;
 }
 
+.project-content {
+    padding: 30px;
+}
+
 .project-card::before {
     content: '';
     position: absolute;
@@ -1089,6 +1093,7 @@ body {
 
 .project-header {
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .project-title {
@@ -1925,7 +1930,11 @@ body {
     }
 
     .project-card {
-        padding: 25px;
+        padding: 0;
+    }
+    
+    .project-content {
+        padding: 20px;
     }
 
     .contact-form {
