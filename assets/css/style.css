@@ -1759,6 +1759,11 @@ body {
 
     .hero-right-clean {
         align-items: center;
+        padding-right: 20px;
+    }
+    
+    .hero-right-clean {
+        align-items: center;
     }
 
     .hero-name-clean {
@@ -1913,6 +1918,7 @@ body {
     .hero-title {
         font-size: 28px;
     }
+    
 
     .section-container {
         padding: 60px 15px;
