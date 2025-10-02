@@ -481,6 +481,39 @@ window.addEventListener('error', function(e) {
     }
 });
 
+// Show More Projects functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('showMoreBtn');
+    const additionalProjects = document.querySelectorAll('.additional-project');
+    let isExpanded = false;
+
+    if (showMoreBtn) {
+        showMoreBtn.addEventListener('click', function() {
+            isExpanded = !isExpanded;
+            
+            additionalProjects.forEach((project, index) => {
+                if (isExpanded) {
+                    project.classList.add('show');
+                } else {
+                    project.classList.remove('show');
+                }
+            });
+
+            // Update button text and icon
+            const btnText = showMoreBtn.querySelector('.btn-text');
+            const btnIcon = showMoreBtn.querySelector('.btn-icon');
+            
+            if (isExpanded) {
+                btnText.textContent = 'Show Less Projects';
+                showMoreBtn.classList.add('expanded');
+            } else {
+                btnText.textContent = 'Show More Projects';
+                showMoreBtn.classList.remove('expanded');
+            }
+        });
+    }
+});
+
 // Copy functionality for contact section
 document.addEventListener('DOMContentLoaded', function() {
     // Individual copy buttons
