@@ -1017,12 +1017,9 @@ body {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover::before {
-    transform: translateX(0);
-}
+/* Removed top border animation for smoother scrolling */
 
 .project-card:hover {
-    transform: translateY(-10px);
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -1071,9 +1068,7 @@ body {
     opacity: 0;
 }
 
-.project-card:hover .main-image {
-    transform: scale(1.05);
-}
+/* Removed image zoom animation for smoother scrolling */
 
 .project-card:hover .secondary-image {
     opacity: 1;
@@ -1118,7 +1113,6 @@ body {
 
 .project-card:hover .project-title {
     color: #00ff88;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
 .project-type {
