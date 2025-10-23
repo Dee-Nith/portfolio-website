@@ -663,4 +663,37 @@ function showToast(message, type = 'success') {
     }, 3000);
 }
 
+// Academic Projects Show More functionality
+// REPLACED: make it robust and toggle all hidden items
+document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('academicShowMore');
+    const hiddenCards = document.querySelectorAll('.academic-hidden');
+
+    if (!showMoreBtn) return;
+
+    function setExpanded(expanded) {
+        showMoreBtn.classList.toggle('expanded', expanded);
+        showMoreBtn.setAttribute('aria-expanded', String(expanded));
+        const btnTextEl = showMoreBtn.querySelector('.btn-text');
+        if (btnTextEl) btnTextEl.textContent = expanded ? 'Show Less Projects' : 'Show More Projects';
+    }
+
+    showMoreBtn.addEventListener('click', function() {
+        const expanded = showMoreBtn.classList.contains('expanded');
+        const nextState = !expanded;
+
+        hiddenCards.forEach(card => {
+            card.classList.toggle('show', nextState);
+        });
+
+        setExpanded(nextState);
+
+        if (nextState && hiddenCards.length > 0) {
+            // Smooth scroll to the first revealed card
+            const first = hiddenCards[0];
+            first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
 console.log('Portfolio website JavaScript loaded successfully!');

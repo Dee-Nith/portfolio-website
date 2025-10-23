@@ -1,3 +1,182 @@
+/* Academic Projects - Clean Redesign */
+.academic-projects {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    padding: 100px 0;
+}
+
+.academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.academic-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.academic-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.academic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.academic-content {
+    padding: 30px;
+}
+
+.academic-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.academic-type {
+    font-size: 12px;
+    color: #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.academic-description {
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.academic-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.academic-metric {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric-value {
+    display: block;
+    font-family: 'Orbitron', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 11px;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.academic-tech {
+    font-size: 14px;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.academic-tech strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.academic-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    letter-spacing: 1px;
+}
+
+.academic-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.academic-show-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.academic-btn {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+.academic-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+.academic-btn .btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.academic-btn.expanded .btn-icon {
+    transform: rotate(180deg);
+}
+
+.academic-hidden {
+    display: none;
+}
+
+.academic-hidden.show {
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Testimonials Layout */
 .testimonials-layout {
     display: grid;
@@ -212,6 +391,8 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
 }
 
 /* Typography */
@@ -679,14 +860,19 @@ body {
 }
 
 .about-layout {
+    width: 100%;
+}
+
+.about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
 }
+
+/* Removed duplicate about-layout rule */
 
 .about-text {
     padding: 40px 0;
@@ -797,14 +983,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px;
 }
 
 .profile-image {
     width: 100%;
-    height: 100vh;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     object-fit: cover;
-    object-position: center;
     filter: grayscale(100%) contrast(1.2) brightness(0.9);
 }
 
@@ -992,40 +1180,23 @@ body {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 20px;
     padding: 0;
     position: relative;
-    overflow: hidden;
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    transform: none !important;
+    box-shadow: none !important;
+    transition: none !important;
 }
 
 .project-content {
     padding: 30px;
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    transform: none !important;
+    transition: none !important;
 }
 
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ffffff, #cccccc, #ffffff);
-    transform: translateX(-100%);
-}
+/* Removed top border line completely */
 
 /* Removed top border animation for smoother scrolling */
 
@@ -1060,12 +1231,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .secondary-image {
@@ -1076,12 +1241,6 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 /* Removed image zoom animation for smoother scrolling */
@@ -1205,14 +1364,12 @@ body {
     padding: 10px 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 25px;
-    transition: all 0.3s ease;
     letter-spacing: 1px;
 }
 
 .project-link:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: #ffffff;
-    transform: translateY(-2px);
 }
 
 /* Professional Projects Section */
