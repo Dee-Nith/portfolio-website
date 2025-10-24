@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Create mailto link
-            const mailtoLink = `mailto:deepakananth2001@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            const mailtoLink = `mailto:hireme.dpk@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             
             // Open email client
             window.location.href = mailtoLink;
@@ -553,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
         copyAllBtn.addEventListener('click', async function() {
             const contactInfo = {
                 phone: '+44 7818984644',
-                email: 'deepakananth2001@gmail.com',
+                email: 'hireme.dpk@gmail.com',
                 location: 'London, UK',
                 linkedin: 'https://www.linkedin.com/in/deepak-ananth-181001d160802n/',
                 github: 'https://github.com/Dee-Nith'
