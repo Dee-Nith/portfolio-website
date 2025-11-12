@@ -2032,45 +2032,72 @@ body {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .hero {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
+    }
+
+    .hero-content {
+        height: auto;
+        min-height: 100vh;
+    }
+
     .hero-content-clean {
         grid-template-columns: 1fr;
-        padding: 32px 20px;
-        gap: 28px;
+        padding: 80px 20px 40px;
+        gap: 24px;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        align-content: center;
     }
 
     .hero-left-clean {
         align-items: center;
         text-align: center;
         max-width: 100%;
+        width: 100%;
+        padding: 0;
     }
 
     .hero-right-clean {
         align-items: center;
-        padding-right: 20px;
+        padding-right: 0;
+        display: none;
     }
     
-    .hero-right-clean {
-        align-items: center;
-    }
-
     .hero-name-clean {
-        font-size: 34px;
-        line-height: 1.0;
+        font-size: 32px;
+        line-height: 1.1;
         letter-spacing: 1px;
+        margin-bottom: 20px;
     }
 
     .hero-question {
-        font-size: 14px;
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .hero-description {
+        margin-bottom: 25px;
     }
 
     .hero-description p {
         font-size: 14px;
-        max-width: 680px;
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     .hero-stats-clean {
         justify-content: center;
-        gap: 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .stat-item-clean {
+        align-items: center;
     }
 
     .stat-number-clean {
@@ -2078,12 +2105,14 @@ body {
     }
 
     .stat-label-clean {
-        font-size: 10px;
+        font-size: 9px;
         letter-spacing: 0.5px;
     }
 
     /* Hide hero contact on mobile to reduce clutter */
-    .contact-info-clean { display: none; }
+    .contact-info-clean { 
+        display: none; 
+    }
 
     .contact-item-clean {
         align-items: center;
@@ -2091,11 +2120,17 @@ body {
     }
 
     .robot-hint {
-        bottom: 20px;
+        bottom: 10px;
+        display: none;
     }
 
     .hint-content {
-        padding: 10px 16px;
+        padding: 8px 12px;
+    }
+
+    .hero-robot-background {
+        height: 100%;
+        min-height: 100vh;
     }
 
     .hero-robot-background,
@@ -2937,9 +2972,69 @@ img, video, iframe {
 @supports (-webkit-touch-callout: none) {
     .hero {
         min-height: -webkit-fill-available;
+        height: -webkit-fill-available;
+    }
+
+    .hero-content {
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+    }
+
+    .hero-content-clean {
+        height: -webkit-fill-available;
+        min-height: -webkit-fill-available;
+        padding-top: 100px;
     }
 
     .about {
         min-height: -webkit-fill-available;
+    }
+}
+
+/* iPhone 12 Pro Specific (390px width) */
+@media (max-width: 390px) {
+    .hero-content-clean {
+        padding: 90px 16px 30px;
+        gap: 20px;
+    }
+
+    .hero-name-clean {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    .hero-question {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .hero-description {
+        margin-bottom: 20px;
+    }
+
+    .hero-description p {
+        font-size: 13px;
+        padding: 0 5px;
+    }
+
+    .hero-stats-clean {
+        gap: 12px;
+        margin-top: 15px;
+    }
+
+    .stat-number-clean {
+        font-size: 16px;
+    }
+
+    .stat-label-clean {
+        font-size: 8px;
+    }
+
+    .hero {
+        overflow: visible;
+    }
+
+    .hero-content {
+        overflow: visible;
     }
 }
