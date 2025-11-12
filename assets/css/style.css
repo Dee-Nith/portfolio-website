@@ -589,9 +589,15 @@ body {
     z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 80px 60px;
+    padding: 80px 60px 80px 60px;
     gap: 60px;
     pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+    .hero-content-clean {
+        padding-right: 40px;
+    }
 }
 
 /* Left Side - Name & Description */
@@ -677,6 +683,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    padding-right: 0;
+    margin-right: 0;
 }
 
 .contact-info-clean {
@@ -684,6 +692,8 @@ body {
     flex-direction: column;
     gap: 30px;
     min-width: 300px;
+    margin-right: 0;
+    padding-right: 0;
 }
 
 .contact-item-clean {
