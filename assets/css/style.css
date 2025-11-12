@@ -2968,28 +2968,6 @@ img, video, iframe {
     }
 }
 
-/* Fix for iOS Safari viewport issues */
-@supports (-webkit-touch-callout: none) {
-    .hero {
-        min-height: -webkit-fill-available;
-        height: -webkit-fill-available;
-    }
-
-    .hero-content {
-        height: -webkit-fill-available;
-        min-height: -webkit-fill-available;
-    }
-
-    .hero-content-clean {
-        height: -webkit-fill-available;
-        min-height: -webkit-fill-available;
-        padding-top: 100px;
-    }
-
-    .about {
-        min-height: -webkit-fill-available;
-    }
-}
 
 /* iPhone 12 Pro Specific (390px width) */
 @media (max-width: 390px) {
