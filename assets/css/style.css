@@ -6,7 +6,7 @@
 
 .academic-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 50px;
 }
@@ -2098,6 +2098,13 @@ body {
         padding: 10px 16px;
     }
 
+    .hero-robot-background,
+    .hero-robot-background spline-viewer {
+        width: 100%;
+        height: 100%;
+        max-width: 100vw;
+    }
+
     .hint-text {
         font-size: 12px;
     }
@@ -2135,28 +2142,53 @@ body {
         font-size: 80px;
     }
 
-    .about-layout {
+    .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
         padding: 0 20px;
     }
 
+    .about-text {
+        padding: 20px 0;
+        order: 2;
+    }
+
     .about-image {
-        height: 50vh;
-        order: -1;
+        order: 1;
+        padding: 0;
+        margin-bottom: 20px;
     }
 
     .profile-image {
-        height: 50vh;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
     }
 
     .about-title {
-        font-size: 36px;
+        font-size: 32px;
+        text-align: center;
     }
 
+    .title-underline {
+        margin: 10px auto 20px;
+    }
 
     .about-description {
         font-size: 15px;
+        text-align: center;
+    }
+
+    .about-actions {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .about-location {
+        justify-content: center;
     }
 
     .resume-download-btn {
@@ -2198,6 +2230,21 @@ body {
 
     .skills-tags {
         justify-content: flex-start;
+    }
+
+    .academic-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 }
 
@@ -2583,4 +2630,316 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   COMPREHENSIVE RESPONSIVE OPTIMIZATIONS
+   ============================================ */
+
+/* Base: Prevent horizontal overflow */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Large Screens (above 1440px) */
+@media (min-width: 1440px) {
+    .section-container {
+        max-width: 1400px;
+        padding: 120px 40px;
+    }
+
+    .hero-content-clean {
+        max-width: 1400px;
+        padding: 80px 60px;
+    }
+
+    .about-content {
+        max-width: 1400px;
+    }
+
+    .academic-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+
+    .expertise-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Large Screens (above 1920px) */
+@media (min-width: 1920px) {
+    .section-container {
+        max-width: 1600px;
+    }
+
+    .hero-content-clean {
+        max-width: 1600px;
+    }
+}
+
+/* Tablet Landscape (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero-content-clean {
+        padding: 40px 30px;
+    }
+
+    .section-container {
+        padding: 80px 30px;
+    }
+
+    .about-content {
+        gap: 40px;
+    }
+}
+
+/* Very Small Screens (below 360px) */
+@media (max-width: 360px) {
+    .section-container {
+        padding: 50px 12px;
+    }
+
+    .hero-content-clean {
+        padding: 24px 15px;
+        gap: 20px;
+    }
+
+    .hero-name-clean {
+        font-size: 28px;
+        line-height: 1.1;
+    }
+
+    .hero-question {
+        font-size: 12px;
+    }
+
+    .hero-description p {
+        font-size: 13px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .section-number {
+        font-size: 60px;
+    }
+
+    .about-title {
+        font-size: 28px;
+    }
+
+    .about-description {
+        font-size: 14px;
+    }
+
+    .academic-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .academic-card {
+        border-radius: 15px;
+    }
+
+    .academic-content {
+        padding: 20px;
+    }
+
+    .academic-title {
+        font-size: 18px;
+    }
+
+    .academic-description {
+        font-size: 13px;
+    }
+
+    .skills-tags {
+        gap: 8px;
+    }
+
+    .skill-tag {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .expertise-card {
+        padding: 25px 15px;
+    }
+
+    .expertise-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .expertise-icon i {
+        font-size: 20px;
+    }
+
+    .expertise-title {
+        font-size: 18px;
+    }
+
+    .expertise-description {
+        font-size: 13px;
+    }
+
+    .contact-form {
+        padding: 20px 15px;
+    }
+
+    .resume-download-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .stat-number-clean {
+        font-size: 16px;
+    }
+
+    .stat-label-clean {
+        font-size: 9px;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Ensure touch targets are at least 44x44px */
+    .nav-link,
+    .skill-tag,
+    .academic-link,
+    .resume-download-btn,
+    .copy-btn,
+    .submit-btn,
+    .expertise-contact-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .academic-card:hover,
+    .project-card:hover,
+    .expertise-card:hover {
+        transform: none;
+    }
+
+    /* Better tap feedback */
+    .nav-link:active,
+    .skill-tag:active,
+    .academic-link:active,
+    .resume-download-btn:active {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+}
+
+/* Landscape Phone Optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 40px 0;
+    }
+
+    .hero-content-clean {
+        padding: 30px 20px;
+    }
+
+    .about {
+        min-height: auto;
+    }
+
+    .section-container {
+        padding: 60px 20px;
+    }
+
+    .hero-robot-background {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    spline-viewer {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav,
+    .hero-robot-background,
+    .robot-hint,
+    .copy-btn,
+    .copy-all-btn {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .section-container {
+        padding: 20px;
+        page-break-inside: avoid;
+    }
+}
+
+/* High DPI / Retina Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .profile-image,
+    .academic-image img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark Mode Support (if system prefers dark) */
+@media (prefers-color-scheme: dark) {
+    /* Already dark theme, no changes needed */
+}
+
+/* Container Queries Support (Future-proof) */
+@container (max-width: 600px) {
+    .academic-card {
+        padding: 20px;
+    }
+}
+
+/* Fix for iOS Safari viewport issues */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+
+    .about {
+        min-height: -webkit-fill-available;
+    }
 }
