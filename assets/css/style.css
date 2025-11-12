@@ -589,14 +589,14 @@ body {
     z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 80px 60px 80px 60px;
+    padding: 80px 20px 80px 60px;
     gap: 60px;
     pointer-events: none;
 }
 
 @media (min-width: 1024px) {
     .hero-content-clean {
-        padding-right: 40px;
+        padding-right: 20px;
     }
 }
 
@@ -685,13 +685,15 @@ body {
     align-items: flex-end;
     padding-right: 0;
     margin-right: 0;
+    width: 100%;
 }
 
 .contact-info-clean {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    min-width: 300px;
+    min-width: auto;
+    width: fit-content;
     margin-right: 0;
     padding-right: 0;
 }
